@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="E_Ticaret.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="~/App_Themes/admin/styles.css" type="text/css" />
+    <style>
+        a {
+            color: orange;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="header" style="font-family: Consolas; color: orange; top: 0; left: 20px; font-size: xx-large; float: left; margin: 0; padding: 20px; background-color: #333; width: 100%; height: 100%">
+            Wissen Akademie
+            <span style="font-size: medium">|&nbsp <a href='<%= ResolveClientUrl("~/Default.aspx") %>'>E-Ticaret &nbsp|&nbsp <a href='<%= ResolveClientUrl("~/Admin/DefaultAdmin.aspx") %>'>User Panel </a>&nbsp|&nbsp  <a href='<%= ResolveClientUrl("~/Admin/DefaultAdmin.aspx") %>'>Admin Panel </a>&nbsp| </span>
+        </div>
+        <div style="width: 100%">
+            <div id="tabs">
+                <ul id="nav" style="margin:0px;padding:0px">
+                    <li id="nav-1"><a href='<%= ResolveClientUrl("~/Admin/Categories.aspx") %>'>Kategoriler</a></li>
+                    <li id="nav-2"><a href='<%= ResolveClientUrl("~/Admin/Products.aspx") %>'>Urunler</a></li>
+                    <li id="nav-3"><a href='<%= ResolveClientUrl("~/Admin/ProductPhotos.aspx") %>'> Urun Resimleri</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

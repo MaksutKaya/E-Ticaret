@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>~/images/icons/koko.jpg</ImageUrl>
+    <NavigateUrl>~/Default.aspx</NavigateUrl>
+    <Impressions>5</Impressions>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/icons/koko1.jpg</ImageUrl>
+    <NavigateUrl>~/Default.aspx</NavigateUrl>
+    <Impressions>5</Impressions>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/icons/koko2.jpg</ImageUrl>
+    <NavigateUrl>~/Default.aspx</NavigateUrl>
+    <Impressions>5</Impressions>
+  </Ad>
+</Advertisements>
