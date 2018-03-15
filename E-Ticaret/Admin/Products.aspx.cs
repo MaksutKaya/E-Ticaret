@@ -14,10 +14,9 @@ namespace E_Ticaret.Admin
     {
         E_TicaretDataContext db = new E_TicaretDataContext();
 
-        //
         public string fileNameSmall { get; set; }
         public string fileNameLarge { get; set; }
-        //
+
         public int? SelectedProductId
         {
             set
@@ -104,9 +103,7 @@ namespace E_Ticaret.Admin
             rptProductsFill();
             MultiView1.ActiveViewIndex = 2;
         }
-
-
-
+        
         protected void rptList_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             ProductFill();
@@ -128,8 +125,7 @@ namespace E_Ticaret.Admin
             ImgSmallPhoto.ImageUrl = "~/" + lblSmallPhoto.Text;
             lblLargePhoto.Text = ProductSelected.LargePhotoPath.ToString();
             ImgLargePhoto.ImageUrl = "~/" + lblLargePhoto.Text;
-            fileNameSmall = ProductSelected.SmallPhotoPath.Substring(13, ProductSelected.SmallPhotoPath.Length - 13);
-            fileNameLarge = ProductSelected.LargePhotoPath.Substring(13, ProductSelected.LargePhotoPath.Length - 13);
+
             ddlCateFill();
 
             foreach (ListItem item in ddlCateID.Items)
@@ -155,14 +151,8 @@ namespace E_Ticaret.Admin
             prod.UnitPrice = Convert.ToDecimal(txtUnitPrice.Text);
             prod.UnitsInStock = Convert.ToInt32(txtUnitsInStock.Text);
 
-            //prod.SmallPhotoPath = (txtSmallPhotoName.Text == "") ? "images/small/No_Image_Small.jpg" : txtSmallPhotoName.Text;
-            //prod.LargePhotoPath = (txtLargePhotoName.Text == "") ? "images/large/No_Image_Large.jpg" : txtLargePhotoName.Text;
-
-            //
-
             photoSmallAdd();
             photoLargeAdd();
-
 
             if (fileNameSmall == "")
             {
@@ -178,16 +168,14 @@ namespace E_Ticaret.Admin
             if (fileNameLarge == "")
             {
                 lblLargePhoto.Text = "images/large/No_Image_Large.jpg";
-                prod.LargePhotoPath = lblSmallPhoto.Text;
+                prod.LargePhotoPath = lblLargePhoto.Text;
             }
             else
             {
                 prod.LargePhotoPath = "images/large/" + fileNameLarge.ToString();
                 lblLargePhoto.Text = prod.LargePhotoPath;
             }
-
-            //
-
+            
             prod.CategoryID = Convert.ToInt32(ddlCateID.SelectedValue);
 
             db.Products.InsertOnSubmit(prod);
@@ -233,7 +221,10 @@ namespace E_Ticaret.Admin
 
         private void photoLargeAdd()
         {
-            fileNameLarge = "";
+            if (btnEkle.Visible == true)
+            {
+                fileNameLarge = "";
+            }
             if (fuLargePhoto.HasFile)
             {
                 if (fuLargePhoto.PostedFile.ContentType == "image/jpeg" || fuLargePhoto.PostedFile.ContentType == "image/png")
@@ -260,10 +251,11 @@ namespace E_Ticaret.Admin
 
         private void ClearAllItem()
         {
-            // 
             lblSmallPhoto.Text = null;
             lblLargePhoto.Text = null;
-            //
+
+            ImgSmallPhoto.ImageUrl = "~/images/small/No_Image_Small.jpg";
+            ImgLargePhoto.ImageUrl = "~/images/large/No_Image_Large.jpg";
 
             txtProductName.Text = null;
             txtDescription.Text = null;
@@ -281,10 +273,13 @@ namespace E_Ticaret.Admin
             selectedCate.UnitsInStock = Convert.ToInt32(txtUnitsInStock.Text);
             selectedCate.CategoryID = Convert.ToInt32(ddlCateID.SelectedValue);
 
+            fileNameSmall = selectedCate.SmallPhotoPath.Substring(13, selectedCate.SmallPhotoPath.Length - 13);
+            fileNameLarge = selectedCate.LargePhotoPath.Substring(13, selectedCate.LargePhotoPath.Length - 13);
+
             photoSmallAdd();
             photoLargeAdd();
 
-            if (fileNameSmall == "")
+            if (fileNameSmall == "" )
             {
                 lblSmallPhoto.Text = "images/small/No_Image_Small.jpg";
                 selectedCate.SmallPhotoPath = lblSmallPhoto.Text;
@@ -295,18 +290,16 @@ namespace E_Ticaret.Admin
                 lblSmallPhoto.Text = selectedCate.SmallPhotoPath;
             }
 
-            if (fileNameLarge == "")
+            if (fileNameLarge == "" )
             {
                 lblLargePhoto.Text = "images/large/No_Image_Large.jpg";
-                selectedCate.LargePhotoPath = lblSmallPhoto.Text;
+                selectedCate.LargePhotoPath = lblLargePhoto.Text;
             }
             else
             {
                 selectedCate.LargePhotoPath = "images/large/" + fileNameLarge.ToString();
                 lblLargePhoto.Text = selectedCate.LargePhotoPath;
             }
-
-
 
             db.SubmitChanges();
 
