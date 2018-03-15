@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server"  enctype="multipart/form-data">
         <div id="header" style="font-family: Consolas; color: orange; top: 0; left: 20px; font-size: xx-large; float: left; margin: 0; padding: 20px; background-color: #333; width: 100%; height: 100%">
             Wissen Akademie
             <span style="font-size: medium">|&nbsp <a href='<%= ResolveClientUrl("~/Default.aspx") %>'>E-Ticaret &nbsp|&nbsp <a href='<%= ResolveClientUrl("~/Admin/DefaultAdmin.aspx") %>'>User Panel </a>&nbsp|&nbsp  <a href='<%= ResolveClientUrl("~/Admin/DefaultAdmin.aspx") %>'>Admin Panel </a>&nbsp| </span>

@@ -175,58 +175,58 @@ namespace E_Ticaret.Admin {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
-        /// txtSmallPhotoName control.
+        /// ImgSmallPhoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSmallPhotoName;
+        protected global::System.Web.UI.WebControls.Image ImgSmallPhoto;
         
         /// <summary>
-        /// btnSmallPhotoSec control.
+        /// fuSmallPhoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSmallPhotoSec;
+        protected global::System.Web.UI.WebControls.FileUpload fuSmallPhoto;
         
         /// <summary>
-        /// btnSmallPhotoSil control.
+        /// lblSmallPhoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSmallPhotoSil;
+        protected global::System.Web.UI.WebControls.Label lblSmallPhoto;
         
         /// <summary>
-        /// txtLargePhotoName control.
+        /// ImgLargePhoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLargePhotoName;
+        protected global::System.Web.UI.WebControls.Image ImgLargePhoto;
         
         /// <summary>
-        /// btnLargePhotoSec control.
+        /// fuLargePhoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLargePhotoSec;
+        protected global::System.Web.UI.WebControls.FileUpload fuLargePhoto;
         
         /// <summary>
-        /// btnLargePhotoSil control.
+        /// lblLargePhoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLargePhotoSil;
+        protected global::System.Web.UI.WebControls.Label lblLargePhoto;
         
         /// <summary>
         /// ddlCateID control.
@@ -263,6 +263,15 @@ namespace E_Ticaret.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        
+        /// <summary>
+        /// lblUyari control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUyari;
         
         /// <summary>
         /// View2 control.

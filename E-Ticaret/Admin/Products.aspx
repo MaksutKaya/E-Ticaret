@@ -85,24 +85,24 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="text-align: left; vertical-align: top; width: 150px;">Urun Kucuk Resim :</td>
-                                <td style="text-align: left; vertical-align: top; width: 250px;">
-                                    <asp:TextBox Style="width: 250px" ID="txtSmallPhotoName" runat="server"></asp:TextBox>
+                                <td style="height: 75px; width: 75px">
+                                    <asp:Image ID="ImgSmallPhoto" runat="server" Width="75px" Height="75px" />
                                 </td>
-                                <td>
-                                    <asp:Button Style="width: 50px" ID="btnSmallPhotoSec" runat="server" Text="Sec" OnClick="btnSmallPhotoSec_Click" />
-                                    <asp:Button Style="width: 50px" ID="btnSmallPhotoSil" runat="server" Text="Sil" OnClick="btnSmallPhotoSil_Click" />
+                                <td style="text-align: left; vertical-align: central; width: 250px;">
+                                    <asp:FileUpload ID="fuSmallPhoto" runat="server" Width="250px" />
+                                    <asp:Label ID="lblSmallPhoto" runat="server" Text=""></asp:Label>
                                 </td>
+                                <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td style="text-align: left; vertical-align: top; width: 150px;">Urun Buyuk Resim :</td>
-                                <td style="text-align: left; vertical-align: top; width: 250px;">
-                                    <asp:TextBox Style="width: 250px" ID="txtLargePhotoName" runat="server"></asp:TextBox>
+                                <td style="height: 75px; width: 75px">
+                                    <asp:Image ID="ImgLargePhoto" runat="server" Width="75px" Height="75px" />
                                 </td>
-                                <td>
-                                    <asp:Button Style="width: 50px" ID="btnLargePhotoSec" runat="server" Text="Sec" OnClick="btnLargePhotoSec_Click" />
-                                    <asp:Button Style="width: 50px" ID="btnLargePhotoSil" runat="server" Text="Sil" OnClick="btnLargePhotoSil_Click" />
+                                <td style="text-align: left; vertical-align: central; width: 250px;">
+                                    <asp:FileUpload ID="fuLargePhoto" runat="server" />
+                                    <asp:Label ID="lblLargePhoto" runat="server" Text=""></asp:Label>
                                 </td>
+                                <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td style="text-align: left; vertical-align: top; width: 150px;">Kategori Sec: </td>
@@ -110,7 +110,6 @@
                                 <td style="text-align: left; vertical-align: top; width: 250px;">
                                     <asp:DropDownList ID="ddlCateID" runat="server"></asp:DropDownList></td>
                             </tr>
-
                             <tr>
                                 <td style="text-align: left; vertical-align: top; width: 150px;"></td>
 
@@ -134,15 +133,15 @@
 
                                 <td style="text-align: left; vertical-align: top; width: 200px;"></td>
                             </tr>
-
                         </table>
+                        <asp:Label ID="lblUyari" runat="server" Text="" style="color:red" ></asp:Label>
                     </asp:View>
                     <asp:View ID="View2" runat="server">
                         <table>
                             <tr>
                                 <td>Kategori Seciniz : </td>
                                 <td>
-                                    <asp:DropDownList ID="ddlUpdate" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlUpdate_SelectedIndexChanged" >
+                                    <asp:DropDownList ID="ddlUpdate" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlUpdate_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -169,5 +168,9 @@
                 </asp:MultiView>
             </div>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnEkle" />
+            <asp:PostBackTrigger ControlID="btnGuncelle" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

@@ -7,7 +7,6 @@
     <asp:UpdatePanel ID="UpdatePanelProdPhoto" runat="server">
         <ContentTemplate>
             <div style="width: 100%; float: left; margin: 0px">
-                <asp:LinkButton ID="lbtnProdPhotoInsertViews" runat="server" OnClick="lbtnProdPhotoInsertViews_Click">Urun Resmi Guncelleme</asp:LinkButton>
                 &nbsp;<br />
 
                 <asp:MultiView ID="MultiView1" runat="server">

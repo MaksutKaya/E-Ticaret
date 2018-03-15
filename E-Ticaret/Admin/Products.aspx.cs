@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,17 +13,31 @@ namespace E_Ticaret.Admin
     public partial class Products : System.Web.UI.Page
     {
         E_TicaretDataContext db = new E_TicaretDataContext();
+
+        //
+        public string fileNameSmall { get; set; }
+        public string fileNameLarge { get; set; }
+        //
+        public int? SelectedProductId
+        {
+            set
+            {
+                ViewState["SelectedProductId"] = value;
+            }
+            get
+            {
+                return (int?)ViewState["SelectedProductId"];
+            }
+        }
+        public int? selectedCateddl { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
             MultiView1.ActiveViewIndex = 0;
             ddlCateFill();
             ProductFill();
-            txtLargePhotoName.Enabled = false;
-            txtSmallPhotoName.Enabled = false;
         }
-
-        public int? selectedCateddl { get; set; }
 
         private void ProductFill()
         {
@@ -32,7 +47,7 @@ namespace E_Ticaret.Admin
         }
         private void rptProductsFill()
         {
-            List<Product> urunler = ( from u in db.Products where u.CategoryID == Convert.ToInt16(ddlUpdate.SelectedValue) select u).ToList();
+            List<Product> urunler = (from u in db.Products where u.CategoryID == Convert.ToInt16(ddlUpdate.SelectedValue) select u).ToList();
             rptProducts.DataSource = urunler;
             rptProducts.DataBind();
         }
@@ -43,7 +58,6 @@ namespace E_Ticaret.Admin
 
             ClearAllItem();
             ddlCateFill();
-
 
             btnEkle.Visible = true;
             btnGuncelle.Visible = false;
@@ -91,17 +105,7 @@ namespace E_Ticaret.Admin
             MultiView1.ActiveViewIndex = 2;
         }
 
-        public int? SelectedProductId
-        {
-            set
-            {
-                ViewState["SelectedProductId"] = value;
-            }
-            get
-            {
-                return (int?)ViewState["SelectedProductId"];
-            }
-        }
+
 
         protected void rptList_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
@@ -114,15 +118,18 @@ namespace E_Ticaret.Admin
 
             SelectedProductId = Convert.ToInt32(hfId.Value);
 
-            Product ProductSelected = db.Products.FirstOrDefault(sc => sc.ProductID == SelectedProductId ); // Category'e ulaşması için -> using'e kütüphanesini ekleyiniz !!!
+            Product ProductSelected = db.Products.FirstOrDefault(sc => sc.ProductID == SelectedProductId); // Category'e ulaşması için -> using'e kütüphanesini ekleyiniz !!!
 
             txtProductName.Text = ProductSelected.ProductName;
             txtDescription.Text = ProductSelected.Description;
             txtUnitPrice.Text = ProductSelected.UnitPrice.ToString();
             txtUnitsInStock.Text = ProductSelected.UnitsInStock.ToString();
-            txtSmallPhotoName.Text = ProductSelected.SmallPhotoPath.ToString();
-            txtLargePhotoName.Text = ProductSelected.LargePhotoPath.ToString();
-
+            lblSmallPhoto.Text = ProductSelected.SmallPhotoPath.ToString();
+            ImgSmallPhoto.ImageUrl = "~/" + lblSmallPhoto.Text;
+            lblLargePhoto.Text = ProductSelected.LargePhotoPath.ToString();
+            ImgLargePhoto.ImageUrl = "~/" + lblLargePhoto.Text;
+            fileNameSmall = ProductSelected.SmallPhotoPath.Substring(13, ProductSelected.SmallPhotoPath.Length - 13);
+            fileNameLarge = ProductSelected.LargePhotoPath.Substring(13, ProductSelected.LargePhotoPath.Length - 13);
             ddlCateFill();
 
             foreach (ListItem item in ddlCateID.Items)
@@ -148,12 +155,43 @@ namespace E_Ticaret.Admin
             prod.UnitPrice = Convert.ToDecimal(txtUnitPrice.Text);
             prod.UnitsInStock = Convert.ToInt32(txtUnitsInStock.Text);
 
-            prod.SmallPhotoPath = (txtSmallPhotoName.Text == "") ? "images/small/No_Image_Small.jpg" : txtSmallPhotoName.Text;
-            prod.LargePhotoPath = (txtLargePhotoName.Text == "") ? "images/large/No_Image_Large.jpg" : txtLargePhotoName.Text;
+            //prod.SmallPhotoPath = (txtSmallPhotoName.Text == "") ? "images/small/No_Image_Small.jpg" : txtSmallPhotoName.Text;
+            //prod.LargePhotoPath = (txtLargePhotoName.Text == "") ? "images/large/No_Image_Large.jpg" : txtLargePhotoName.Text;
+
+            //
+
+            photoSmallAdd();
+            photoLargeAdd();
+
+
+            if (fileNameSmall == "")
+            {
+                lblSmallPhoto.Text = "images/small/No_Image_Small.jpg";
+                prod.SmallPhotoPath = lblSmallPhoto.Text;
+            }
+            else
+            {
+                prod.SmallPhotoPath = "images/small/" + fileNameSmall.ToString();
+                lblSmallPhoto.Text = prod.SmallPhotoPath;
+            }
+
+            if (fileNameLarge == "")
+            {
+                lblLargePhoto.Text = "images/large/No_Image_Large.jpg";
+                prod.LargePhotoPath = lblSmallPhoto.Text;
+            }
+            else
+            {
+                prod.LargePhotoPath = "images/large/" + fileNameLarge.ToString();
+                lblLargePhoto.Text = prod.LargePhotoPath;
+            }
+
+            //
+
             prod.CategoryID = Convert.ToInt32(ddlCateID.SelectedValue);
 
             db.Products.InsertOnSubmit(prod);
-            db.SubmitChanges();            
+            db.SubmitChanges();
             MultiView1.ActiveViewIndex = 0;
 
             selectedCateddl = prod.CategoryID;
@@ -161,10 +199,72 @@ namespace E_Ticaret.Admin
             ProductFill();
         }
 
+
+        private void photoSmallAdd()
+        {
+            if (btnEkle.Visible == true)
+            {
+                fileNameSmall = "";
+            }
+
+            if (fuSmallPhoto.HasFile)
+            {
+                if (fuSmallPhoto.PostedFile.ContentType == "image/jpeg" || fuSmallPhoto.PostedFile.ContentType == "image/png")
+                {
+                    if (fuSmallPhoto.PostedFile.ContentLength < 1024000)
+                    {
+                        fileNameSmall = Path.GetFileName(fuSmallPhoto.FileName);
+
+                        fuSmallPhoto.PostedFile.SaveAs(Server.MapPath("~/images/small/") + fileNameSmall.ToString());
+                        lblUyari.Text = "";
+
+                    }
+                    else
+                    {
+                        lblUyari.Text = "Resim 100 kb'dan büyüktür...";
+                    }
+                }
+                else
+                {
+                    lblUyari.Text = "Resim .jpeg/.png dosyası olmalıdır";
+                }
+            }
+        }
+
+        private void photoLargeAdd()
+        {
+            fileNameLarge = "";
+            if (fuLargePhoto.HasFile)
+            {
+                if (fuLargePhoto.PostedFile.ContentType == "image/jpeg" || fuLargePhoto.PostedFile.ContentType == "image/png")
+                {
+                    if (fuLargePhoto.PostedFile.ContentLength < 1024000)
+                    {
+                        fileNameLarge = Path.GetFileName(fuLargePhoto.FileName);
+
+                        fuLargePhoto.PostedFile.SaveAs(Server.MapPath("~/images/large/") + fileNameLarge.ToString());
+                        lblUyari.Text = "";
+
+                    }
+                    else
+                    {
+                        lblUyari.Text = "Resim 100 kb'dan büyüktür...";
+                    }
+                }
+                else
+                {
+                    lblUyari.Text = "Resim .jpeg/.png dosyası olmalıdır";
+                }
+            }
+        }
+
         private void ClearAllItem()
         {
-            txtSmallPhotoName.Text = null;
-            txtLargePhotoName.Text = null;
+            // 
+            lblSmallPhoto.Text = null;
+            lblLargePhoto.Text = null;
+            //
+
             txtProductName.Text = null;
             txtDescription.Text = null;
             txtUnitPrice.Text = null;
@@ -180,8 +280,33 @@ namespace E_Ticaret.Admin
             selectedCate.UnitPrice = Convert.ToDecimal(txtUnitPrice.Text);
             selectedCate.UnitsInStock = Convert.ToInt32(txtUnitsInStock.Text);
             selectedCate.CategoryID = Convert.ToInt32(ddlCateID.SelectedValue);
-            selectedCate.SmallPhotoPath = (txtSmallPhotoName.Text == null) ? "images/small/No_Image_Small.jpg" : txtSmallPhotoName.Text;
-            selectedCate.LargePhotoPath = (txtLargePhotoName.Text == null) ? "images/large/No_Image_Large.jpg" : txtLargePhotoName.Text;
+
+            photoSmallAdd();
+            photoLargeAdd();
+
+            if (fileNameSmall == "")
+            {
+                lblSmallPhoto.Text = "images/small/No_Image_Small.jpg";
+                selectedCate.SmallPhotoPath = lblSmallPhoto.Text;
+            }
+            else
+            {
+                selectedCate.SmallPhotoPath = "images/small/" + fileNameSmall.ToString();
+                lblSmallPhoto.Text = selectedCate.SmallPhotoPath;
+            }
+
+            if (fileNameLarge == "")
+            {
+                lblLargePhoto.Text = "images/large/No_Image_Large.jpg";
+                selectedCate.LargePhotoPath = lblSmallPhoto.Text;
+            }
+            else
+            {
+                selectedCate.LargePhotoPath = "images/large/" + fileNameLarge.ToString();
+                lblLargePhoto.Text = selectedCate.LargePhotoPath;
+            }
+
+
 
             db.SubmitChanges();
 
@@ -190,7 +315,7 @@ namespace E_Ticaret.Admin
             btnEkle.Visible = true;
             btnGuncelle.Visible = false;
             // ---------------------------
-           
+
             MultiView1.ActiveViewIndex = 0;
             selectedCateddl = selectedCate.CategoryID.Value;
             ddlCateFill();
@@ -224,33 +349,10 @@ namespace E_Ticaret.Admin
 
         }
 
-
         protected void ddlListCategoryName_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedCateddl = Convert.ToInt32(ddlListCategoryName.SelectedValue);
             ProductFill();
-        }
-
-        protected void btnSmallPhotoSec_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnLargePhotoSec_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        protected void btnLargePhotoSil_Click(object sender, EventArgs e)
-        {
-            txtLargePhotoName.Text = "images/large/No_Image_Large.jpg";
-        }
-
-        protected void btnSmallPhotoSil_Click(object sender, EventArgs e)
-        {
-            txtSmallPhotoName.Text = "images/small/No_Image_Small.jpg";
         }
 
         protected void ddlUpdate_SelectedIndexChanged(object sender, EventArgs e)

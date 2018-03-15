@@ -19,8 +19,7 @@ namespace E_Ticaret.Admin
 
         public string fileNameSmall { get; set; }
         public string fileNameLarge { get; set; }
-
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
@@ -32,21 +31,6 @@ namespace E_Ticaret.Admin
 
         //Butonların Click Özellikleri
         #region Buton Click'leri
-
-        protected void lbtnProdPhotoInsertViews_Click(object sender, EventArgs e)
-        {
-            MultiView1.ActiveViewIndex = 0;
-        }
-
-        protected void lbtnProdPhotoUpdate_Click(object sender, EventArgs e)
-        {
-            MultiView1.ActiveViewIndex = 1;
-        }
-
-        protected void lbtnProdPhotoDelete_Click(object sender, EventArgs e)
-        {
-            MultiView1.ActiveViewIndex = 2;
-        }
 
         protected void BtnEkle_Click(object sender, EventArgs e)
         {

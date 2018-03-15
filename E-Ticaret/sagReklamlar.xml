@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Advertisements>
   <Ad>
-    <ImageUrl>~/images/icons/koko.jpg</ImageUrl>
+    <ImageUrl>~/images/icons/audi.jpg</ImageUrl>
     <NavigateUrl>~/Default.aspx</NavigateUrl>
     <Impressions>5</Impressions>
   </Ad>
   <Ad>
-    <ImageUrl>~/images/icons/koko1.jpg</ImageUrl>
+    <ImageUrl>~/images/icons/bmw.jpg</ImageUrl>
     <NavigateUrl>~/Default.aspx</NavigateUrl>
     <Impressions>5</Impressions>
   </Ad>
   <Ad>
-    <ImageUrl>~/images/icons/koko2.jpg</ImageUrl>
+    <ImageUrl>~/images/icons/ww.jpg</ImageUrl>
     <NavigateUrl>~/Default.aspx</NavigateUrl>
     <Impressions>5</Impressions>
   </Ad>

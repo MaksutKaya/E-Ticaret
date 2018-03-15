@@ -30,17 +30,6 @@
                     <asp:ImageButton ID="imgSearch" runat="server" class="search_bt" ImageUrl="~/images/icons/search.gif" CommandName="arama" OnCommand="GenelMaster_Command" />
 
                 </div>
-                <div class="languages">
-                    <div class="lang_text">
-                        Languages:
-                    </div>
-                    <a href="#" class="lang">
-                        <asp:Image ID="Image2" runat="server" ImageUrl="~/images/icons/en.gif" alt="" title="" border="0" />
-                    </a>
-                    <a href="#" class="lang">
-                        <asp:Image ID="Image1" runat="server" ImageUrl="~/images/icons/de.png" alt="" title="" border="0" />
-                    </a>
-                </div>
             </div>
             <div id="header">
                 <div id="logo">
