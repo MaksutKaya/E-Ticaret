@@ -1,18 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Advertisements>
   <Ad>
-    <ImageUrl>~/images/ads/sag/audi.jpg</ImageUrl>
+    <ImageUrl>~/images/ads/top/top1.png</ImageUrl>
     <NavigateUrl>~/Default.aspx</NavigateUrl>
     <Impressions>5</Impressions>
   </Ad>
   <Ad>
-    <ImageUrl>~/images/ads/sag/bmw.jpg</ImageUrl>
+    <ImageUrl>~/images/ads/top/top2.png</ImageUrl>
+    <NavigateUrl>~/Default.aspx</NavigateUrl>
+    <Impressions>5</Impressions>
+  </Ad>
+    <Ad>
+    <ImageUrl>~/images/ads/top/top3.png</ImageUrl>
     <NavigateUrl>~/Default.aspx</NavigateUrl>
     <Impressions>5</Impressions>
   </Ad>
   <Ad>
-    <ImageUrl>~/images/ads/sag/ww.jpg</ImageUrl>
+    <ImageUrl>~/images/ads/top/top4.png</ImageUrl>
     <NavigateUrl>~/Default.aspx</NavigateUrl>
     <Impressions>5</Impressions>
   </Ad>
+
 </Advertisements>

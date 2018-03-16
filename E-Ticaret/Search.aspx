@@ -17,7 +17,7 @@
             <td>
                 <asp:TextBox ID="txtAra" runat="server"></asp:TextBox>
 
-                <asp:Button ID="btnAra" runat="server" Text="Button" Width="100px" OnClick="btnAra_Click" />
+                <asp:Button ID="btnAra" runat="server" Text="Ara" Width="100px" OnClick="btnAra_Click" />
             </td>
         </tr>
         <tr>

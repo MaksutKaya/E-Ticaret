@@ -58,22 +58,22 @@ namespace E_Ticaret {
         protected global::System.Web.UI.WebControls.Image Image3;
         
         /// <summary>
-        /// Image4 control.
+        /// AdRotatorTopReklamlar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image4;
+        protected global::System.Web.UI.WebControls.AdRotator AdRotatorTopReklamlar;
         
         /// <summary>
-        /// Image5 control.
+        /// topReklamlar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image5;
+        protected global::System.Web.UI.WebControls.XmlDataSource topReklamlar;
         
         /// <summary>
         /// Repeater1 control.
@@ -110,15 +110,6 @@ namespace E_Ticaret {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ImgbtnSaleLeft;
-        
-        /// <summary>
-        /// LoginView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView LoginView1;
         
         /// <summary>
         /// AdRotatorSolReklam control.
@@ -191,6 +182,15 @@ namespace E_Ticaret {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ImgbtnSaleNew;
+        
+        /// <summary>
+        /// LoginView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LoginView LoginView1;
         
         /// <summary>
         /// AdRotatorSagReklam control.

@@ -37,14 +37,12 @@ namespace E_Ticaret
                          where x.ProductName.Contains(aranacakDeger) == true || x.Category.CategoryName.Contains(aranacakDeger) == true
                          select x;
             DataList1.DataSource = result;
-            DataList1.DataBind();
-
-           
+            DataList1.DataBind();    
         }
 
         protected void btnAra_Click(object sender, EventArgs e)
         {
-            Arama(txtAra.Text);
+            Response.Redirect("~/Search.aspx?AranacakDeger=" + txtAra.Text);
         }
 
         // ----------------------------------------------------------------------------

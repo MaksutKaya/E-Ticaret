@@ -332,6 +332,7 @@
     <Content Include="Themplate\index.html" />
     <Content Include="Themplate\js\boxOver.js" />
     <Content Include="Themplate\style.css" />
+    <Content Include="topReklamlar.xml" />
     <Content Include="User\MyAccount.aspx" />
     <Content Include="User\Register.aspx" />
     <Content Include="Web.config" />

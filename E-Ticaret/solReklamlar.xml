@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Advertisements>
   <Ad>
-    <ImageUrl>~/images/icons/bann1.jpg</ImageUrl>
+    <ImageUrl>~/images/ads/sol/bann1.jpg</ImageUrl>
     <NavigateUrl>~/Default.aspx</NavigateUrl>
     <Impressions>5</Impressions>
   </Ad>
   <Ad>
-    <ImageUrl>~/images/icons/bann2.jpg</ImageUrl>
+    <ImageUrl>~/images/ads/sol/bann2.jpg</ImageUrl>
     <NavigateUrl>~/Default.aspx</NavigateUrl>
     <Impressions>5</Impressions>
   </Ad>

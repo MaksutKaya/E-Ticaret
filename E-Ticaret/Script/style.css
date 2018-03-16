@@ -94,10 +94,10 @@ a.lang {
 }
 /*------------------------------oferte_content-----------------------*/
 .oferte_content {
-    width: 600px;
-    height: 164px;
+    width: 729px;
+    height: 173px;
     float: left;
-    padding: 0 0 0 50px;
+    padding: 0 0 0 0;
 }
 
 .top_divider {
@@ -263,7 +263,7 @@ a.nav1:link, a.nav1:visited {
     height: 50px;
     text-decoration: none;
     background: url(../images/icons/home.png) no-repeat left;
-    color: #676d77;
+    color: #676d77;width:100px;
 }
 
 a.nav2:link, a.nav2:visited {
@@ -274,7 +274,7 @@ a.nav2:link, a.nav2:visited {
     height: 50px;
     text-decoration: none;
     background: url(../images/icons/services.png) no-repeat left;
-    color: #676d77;
+    color: #676d77;width:100px;
 }
 
 a.nav3:link, a.nav3:visited {
@@ -285,7 +285,7 @@ a.nav3:link, a.nav3:visited {
     height: 50px;
     text-decoration: none;
     background: url(../images/icons/favs.png) no-repeat left;
-    color: #676d77;
+    color: #676d77;width:100px;
 }
 
 a.nav4:link, a.nav4:visited {
@@ -296,7 +296,7 @@ a.nav4:link, a.nav4:visited {
     height: 50px;
     text-decoration: none;
     background: url(../images/icons/user_add.png) no-repeat left;
-    color: #676d77;
+    color: #676d77;width:100px;
 }
 
 a.nav5:link, a.nav5:visited {
@@ -307,7 +307,7 @@ a.nav5:link, a.nav5:visited {
     height: 50px;
     text-decoration: none;
     background: url(../images/icons/car.png) no-repeat left;
-    color: #676d77;
+    color: #676d77;width:100px;
 }
 
 a.nav6:link, a.nav6:visited {
@@ -318,7 +318,7 @@ a.nav6:link, a.nav6:visited {
     height: 50px;
     text-decoration: none;
     background: url(../images/icons/contact-new.png) no-repeat left;
-    color: #676d77;
+    color: #676d77;width:100px;
 }
 
 a.nav1:hover, a.nav2:hover, a.nav3:hover, a.nav4:hover, a.nav5:hover, a.nav6:hover {

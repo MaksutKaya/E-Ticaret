@@ -34,22 +34,28 @@
             <div id="header">
                 <div id="logo">
                     <a href='<%= ResolveClientUrl("~/Default.aspx") %>'>
-                        <asp:Image ID="Image3" runat="server" ImageUrl="~/images/icons/logo_new.png" alt="" title="" border="0" Width="237" Height="140" />
+                        <asp:Image ID="Image3" runat="server" ImageUrl="~/images/icons/logo_new.png" alt="" title="" border="0" Width="240px" Height="140px" />
                     </a>
                 </div>
                 <div class="oferte_content">
-                    <div class="top_divider">
+                    <%--                    <div class="top_divider">
                         <asp:Image ID="Image4" runat="server" ImageUrl="~/images/icons/header_divider.png" alt="" title="" border="0" />
 
                     </div>
                     <div class="top_divider">
                         <asp:Image ID="Image5" runat="server" ImageUrl="~/images/icons/header_divider.png" alt="" title="" border="0" />
-                    </div>
+                    </div>--%>
+                    <a href="#">
+                        <asp:AdRotator ID="AdRotatorTopReklamlar" runat="server" Height="173px" Width="729px" DataSourceID="topReklamlar"  />
+                       
+                    <asp:XmlDataSource ID="topReklamlar" runat="server" DataFile="~/topReklamlar.xml"></asp:XmlDataSource>
+                       
+                    </a>
                 </div>
 
                 <!-- end of oferte_content-->
             </div>
-            <div id="main_content">                
+            <div id="main_content">
                 <div id="menu_tab">
                     <div class="left_menu_corner">
                     </div>
@@ -60,8 +66,8 @@
                         <li><a href='<%= ResolveClientUrl("~/Products.aspx") %>' class="nav2">URUNLER</a></li>
                         <li class="divider"></li>
 
-                        <li><a href="#" class="nav3">KAMPANYALI URUNLER</a></li>
-                        <li class="divider"></li>
+                        <%--                        <li><a href="#" class="nav3">KAMPANYALI URUNLER</a></li>
+                        <li class="divider"></li>--%>
 
                         <li><a href='<%= ResolveClientUrl("~/User/MyAccount.aspx") %>' class="nav4">HESABIM</a></li>
                         <li class="divider"></li>
@@ -73,7 +79,7 @@
                         <li class="divider"></li>
 
                         <li><a href='<%= ResolveClientUrl("~/Contact.aspx") %>' class="nav6">ILETİSİM</a></li>
-                        <li class="divider"></li>
+                        <%--<li class="divider"></li>--%>
                     </ul>
                     <div class="right_menu_corner">
                     </div>
@@ -125,77 +131,10 @@
 
                     </div>
 
-                    <div class="title_box">
-                        Kullanici Paneli
-                    </div>
-                    <div class="border_box">
-                        <asp:LoginView ID="LoginView1" runat="server">
-                            <AnonymousTemplate>
-                                <asp:Login Width="100%" ID="Login1" runat="server" BackColor="#E3EAEB" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" TextLayout="TextOnTop">
-                                    <InstructionTextStyle Width="194px" Font-Italic="True" ForeColor="Black" />
-                                    <LayoutTemplate>
-                                        <table cellpadding="4" cellspacing="0" style="border-collapse: collapse;">
-                                            <tr>
-                                                <td>
-                                                    <table cellpadding="0" style="width: 100%;">
-                                                        <tr>
-                                                            <td align="center" style="color: White; background-color: #1C5E55; font-size: 0.9em; font-weight: bold;">Log In</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <asp:TextBox ID="UserName" runat="server" Font-Size="0.8em"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="ctl00$ctl00$Login1">*</asp:RequiredFieldValidator>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <asp:TextBox ID="Password" runat="server" Font-Size="0.8em" TextMode="Password"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="ctl00$ctl00$Login1">*</asp:RequiredFieldValidator>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <asp:CheckBox ID="RememberMe" runat="server" Text="Remember me next time." />
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="center" style="color: Red;">
-                                                                <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="right">
-                                                                <asp:Button ID="LoginButton" runat="server" BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" CommandName="Login" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" Text="Log In" ValidationGroup="ctl00$ctl00$Login1" Width="100%" />
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </LayoutTemplate>
-                                    <LoginButtonStyle Width="100%" BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" />
-                                    <TextBoxStyle Font-Size="0.8em" />
-                                    <TitleTextStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
-                                </asp:Login>
-                                <br />
 
-                                <asp:LoginStatus ID="LoginStatus1" runat="server" />
-                            </AnonymousTemplate>
-                        </asp:LoginView>
-                    </div>
                     <div class="banner_adds">
                         <a href="#">
-                            <asp:AdRotator ID="AdRotatorSolReklam" runat="server" AdvertisementFile="~/solReklamlar.xml" Height="125px" Width="125px" />
+                            <asp:AdRotator ID="AdRotatorSolReklam" runat="server" AdvertisementFile="~/solReklamlar.xml" Height="150px" Width="125px" />
                         </a>
                     </div>
                 </div>
@@ -251,18 +190,24 @@
                         </div>
                     </div>
                     <div class="title_box">
-                        Markalar
+                        Kullanici Paneli
                     </div>
-                    <ul class="left_menu">
-                        <li class="odd"><a href="services.html">Sony</a></li>
-                        <li class="even"><a href="services.html">Samsung</a></li>
-                        <li class="odd"><a href="services.html">Daewoo</a></li>
-                        <li class="even"><a href="services.html">LG</a></li>
-                        <li class="odd"><a href="services.html">Fujitsu Siemens</a></li>
-                        <li class="even"><a href="services.html">Motorola</a></li>
-                        <li class="odd"><a href="services.html">Phillips</a></li>
-                        <li class="even"><a href="services.html">Beko</a></li>
-                    </ul>
+                    <div class="border_box">
+                        <asp:LoginView ID="LoginView1" runat="server">
+                            <AnonymousTemplate>
+                                <asp:Login Width="100%" ID="Login1" runat="server" BackColor="#E3EAEB" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" TextLayout="TextOnTop">
+                                    <InstructionTextStyle Width="194px" Font-Italic="True" ForeColor="Black" />
+                                    <LoginButtonStyle Width="100%" BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" />
+                                    <TextBoxStyle Font-Size="0.8em" />
+                                    <TitleTextStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
+                                </asp:Login>
+                                <br />                                
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                            </LoggedInTemplate>
+                        </asp:LoginView>
+                    </div>
                     <div class="banner_adds">
                         <a href="#">
                             <asp:AdRotator ID="AdRotatorSagReklam" runat="server" Height="175px" Width="125px" DataSourceID="sagReklamlar" />
