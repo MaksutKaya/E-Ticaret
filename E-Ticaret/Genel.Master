@@ -147,7 +147,7 @@
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
                 </div>
                 <!-- end of center content -->
-                <div class="right_content">                    
+                <div class="right_content">
                     <div class="shopping_cart">
                         <div>
                             <asp:LinkButton class="cart_title" ID="lbtnSepet" runat="server" CommandName="sepet" Style="text-decoration: none" OnCommand="GenelMaster_Command">Sepetteki Urunler</asp:LinkButton>
@@ -175,72 +175,17 @@
                         </div>
                     </div>
                     <br />
-                                        <div class="title_box">
+                    <div class="title_box">
                         Kullanici Paneli
                     </div>
                     <div class="border_box">
                         <asp:LoginView ID="LoginView1" runat="server">
                             <AnonymousTemplate>
-                                <asp:Login ID="Login1" runat="server" CreateUserText="Yeni Üye" CreateUserUrl="~/User/REgister.aspx" DestinationPageUrl="~/Default.aspx" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333">
+                                <asp:Login Width="184px" ID="Login1" runat="server" CreateUserText="Yeni Üye" CreateUserUrl="~/User/Register.aspx" DestinationPageUrl="~/Default.aspx" BackColor="#E3EAEB" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="small" ForeColor="#333333" TextLayout="TextOnTop" DisplayRememberMe="False" TitleText="">
                                     <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
-                                    <LayoutTemplate>
-                                        <table cellpadding="4" cellspacing="0" style="border-collapse:collapse;">
-                                            <tr >
-                                                <td>
-                                                    <table cellpadding="0" style="width:185px">
-                                                        <tr >
-                                                            <td align="center" style="color:White;background-color:#1C5E55;font-size:medium;font-weight:bold;">Log In</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="font-size:small">
-                                                                <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName" >User Name:</asp:Label>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="font-size:small">
-                                                                <asp:TextBox ID="UserName" runat="server" ></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="ctl00$ctl08$Login1">*</asp:RequiredFieldValidator>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="font-size:small">
-                                                                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="font-size:small">
-                                                                <asp:TextBox ID="Password" runat="server" Font-Size="0.8em" TextMode="Password"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="ctl00$ctl08$Login1">*</asp:RequiredFieldValidator>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <asp:CheckBox ID="RememberMe" runat="server" Text="Remember me next time." />
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="center" style="color:Red;">
-                                                                <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="right" style="font-size:small">
-                                                                <asp:Button ID="LoginButton" runat="server" BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" CommandName="Login" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" Text="Log In" ValidationGroup="ctl00$ctl08$Login1" />
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <asp:HyperLink ID="CreateUserLink" runat="server" NavigateUrl="~/User/REgister.aspx">Yeni Üye</asp:HyperLink>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </LayoutTemplate>
-                                    <LoginButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" />
+                                    <LoginButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" />
                                     <TextBoxStyle Font-Size="0.8em" />
-                                    <TitleTextStyle BackColor="#507CD1" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
+                                    <TitleTextStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
                                 </asp:Login>
                             </AnonymousTemplate>
 

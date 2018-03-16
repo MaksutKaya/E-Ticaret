@@ -14,6 +14,10 @@ namespace E_Ticaret.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Page.User.Identity.IsAuthenticated == false)
+            {
+                Response.Redirect("adminlogin.aspx");
+            }
             if (IsPostBack) return;
             MultiView1.ActiveViewIndex = 0;
             CategoryFill();

@@ -7,14 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace E_Ticaret.Admin
 {
-    public partial class Admin : System.Web.UI.MasterPage
+    public partial class AdminLogin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.User.Identity.IsAuthenticated == false)
-            {
-                Response.Redirect("adminlogin.aspx");
-            }
+
         }
     }
 }

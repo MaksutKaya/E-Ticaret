@@ -104,13 +104,14 @@ namespace E_Ticaret
                     break;
                 case "login":
                     {
+                        if (Request.UrlReferrer.LocalPath == "/ProductDetails.aspx")
+                        {
+                            Response.Redirect(Page.Request.Url.ToString());                            
+                        }
+
                         if (Page.User.Identity.IsAuthenticated == false)
                         {
                             LoginView1.FindControl("login1").Focus();
-                        }
-                        else
-                        {
-                            Response.Redirect(Page.Request.Url.ToString());
                         }
                     }
                     break;
