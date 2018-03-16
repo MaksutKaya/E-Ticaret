@@ -39,6 +39,7 @@ namespace E_Ticaret
 
             selectedProduct = db.Products.FirstOrDefault(x => x.ProductID == prodID);
             LinkButton1.CommandArgument = selectedProduct.CategoryID.ToString();
+            Session["detailsProd"] = selectedProduct;
 
             if (selectedProduct.UnitsInStock > 5)
             {

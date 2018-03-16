@@ -5,23 +5,23 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: 100%">
         <div class="center_content">
-            <div class="center_title_bar"><%= selectedProduct.ProductName%></div>
+            <div class="center_title_bar"><%= ((Web.Library.Product)Session["detailsProd"]).ProductName%></div>
 
             <div class="prod_box_big">
                 <div class="top_prod_box_big"></div>
                 <div class="center_prod_box_big">
 
                     <div class="product_img_big">
-                        <img class="productDetailsImg" src='<%= ResolveClientUrl(selectedProduct.LargePhotoPath) %>' alt="" title="" border="0" />
+                        <img class="productDetailsImg" src='<%= ResolveClientUrl(((Web.Library.Product)Session["detailsProd"]).LargePhotoPath) %>' alt="" title="" border="0" />
                     </div>
                     <div class="details_big_box">
-                        <div class="product_title_big"><%= selectedProduct.Description%></div>
+                        <div class="product_title_big"><%= ((Web.Library.Product)Session["detailsProd"]).Description%></div>
                         <div class="specifications">
                             <%--Kategorisi: <span class="blue"><%= selectedProduct.Category.CategoryName%></span> <br />--%>
 
-                            Kategorisi: <asp:LinkButton ID="LinkButton1" style="text-decoration:none" CommandName="kategori"  ForeColor="#5F9FAB" runat="server" OnCommand="GenelProdDetails_Command"><%=selectedProduct.Category.CategoryName %></asp:LinkButton> <br />
+                            Kategorisi: <asp:LinkButton ID="LinkButton1" style="text-decoration:none" CommandName="kategori"  ForeColor="#5F9FAB" runat="server" OnCommand="GenelProdDetails_Command"><%=((Web.Library.Product)Session["detailsProd"]).Category.CategoryName %></asp:LinkButton> <br />
 
-                            Stok Miktari: <span class="blue"><%= selectedProduct.UnitsInStock%></span><br />
+                            Stok Miktari: <span class="blue"><%= ((Web.Library.Product)Session["detailsProd"]).UnitsInStock%></span><br />
 
                             Stok Durumu: <span style="color: <%= yaziColor%>"><%=stokDurumu %></span><br />
 
@@ -33,10 +33,10 @@
                         </div>
                         <div class="prod_price_big">
                             <span class="reduce">
-                                <%=  string.Format("{0:C2}", Convert.ToDouble(selectedProduct.UnitPrice)*1.18)  %>   
+                                <%=  string.Format("{0:C2}", Convert.ToDouble(((Web.Library.Product)Session["detailsProd"]).UnitPrice)*1.18)  %>   
                             </span>
                             <span class="price">
-                                <%= string.Format("{0:C2}", Convert.ToDouble(selectedProduct.UnitPrice))  %> 
+                                <%= string.Format("{0:C2}", Convert.ToDouble(((Web.Library.Product)Session["detailsProd"]).UnitPrice))  %> 
                             </span>
                         </div>
                         <asp:LinkButton ID="lbtnAddToCart" class="addtocart" runat="server" CommandArgument='<%# Eval("ProductID") %>' CommandName="AddToCart" OnCommand="GenelProdDetails_Command">Sepete Ekle</asp:LinkButton>

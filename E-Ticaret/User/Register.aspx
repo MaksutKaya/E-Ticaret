@@ -5,7 +5,7 @@
 <%-- Web site adminisration tools -> aracı ile web site konfigurasyon işlemlerinizi -> IIS(yani locak üserinden) çalışan aspnet sql kullanıcı ekranı ile -> kullanici sifre vb. oluşturup rahatça işlemlerinizi gerçekleştirebilirsiniz ... internetten araştır --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: 100%; height: auto;">
-        <asp:createuserwizard runat="server" id="ctl00" backcolor="#E3EAEB" bordercolor="#E6E2D8" borderstyle="Solid" borderwidth="1px" font-names="Verdana" font-size="0.8em"> 
+        <asp:createuserwizard runat="server" id="ctl00" backcolor="#E3EAEB" bordercolor="#E6E2D8" borderstyle="Solid" borderwidth="1px" font-names="Verdana" font-size="0.8em" ContinueDestinationPageUrl="~/Default.aspx"> 
             <ContinueButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#1C5E55" />
             <CreateUserButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#1C5E55" />
             <TitleTextStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />

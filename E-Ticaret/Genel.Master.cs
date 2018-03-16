@@ -35,18 +35,20 @@ namespace E_Ticaret
             saleleft = db.Products.FirstOrDefault(p => p.ProductID > i);
             hfSaleLeft.Value = saleleft.ProductID.ToString();
             ImgbtnSaleLeft.ImageUrl = saleleft.SmallPhotoPath;
+            Session["saleLeftProd"] = saleleft;
 
             saleNew = db.Products.FirstOrDefault(p => p.ProductID == saleMaxID);
             hfSaleNew.Value = saleMaxID.ToString();
             ImgbtnSaleNew.ImageUrl = saleNew.SmallPhotoPath;
+            Session["saleNewProd"] = saleNew;
         }
 
         private void karsilastirilacakUrunlerimiz()
         {
             List<Web.Library.Product> karsilastirilacaklar = Web.Library.Compare.CompareTools.GetComparables(Session["myComparable"]);
 
-            int? adet = 0;            
-            this.TotalCompareCount = adet=karsilastirilacaklar.Count;
+            int? adet = 0;
+            this.TotalCompareCount = adet = karsilastirilacaklar.Count;
         }
 
         private void sepettekiUrunlerimiz()
@@ -95,14 +97,24 @@ namespace E_Ticaret
                         Response.Redirect("~/ProductDetails.aspx?ProductId=" + hfSaleNew.Value);
                     }
                     break;
+                case "register":
+                    {
+                        Response.Redirect("~/User/Register.aspx");
+                    }
+                    break;
+                case "login":
+                    {
+                        if (Page.User.Identity.IsAuthenticated == false)
+                        {
+                            LoginView1.FindControl("login1").Focus();
+                        }
+                        else
+                        {
+                            Response.Redirect(Page.Request.Url.ToString());
+                        }
+                    }
+                    break;
             }
-        }
-
-        string kullaniciAdi = "admin";
-        string sifre = "123";
-        protected void LoginButton_Click(object sender, EventArgs e)
-        {
-
         }
 
 
