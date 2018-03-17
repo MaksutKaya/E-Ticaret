@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 
 /* ----------------------------------------------------------- */
@@ -24,6 +25,11 @@ namespace E_Ticaret.Admin
         {
             if (Page.User.Identity.IsAuthenticated == false)
             {
+                Response.Redirect("adminlogin.aspx");
+            }
+            if (Page.User.Identity.Name != "admin")
+            {
+                FormsAuthentication.SignOut();
                 Response.Redirect("adminlogin.aspx");
             }
             if (IsPostBack) return;

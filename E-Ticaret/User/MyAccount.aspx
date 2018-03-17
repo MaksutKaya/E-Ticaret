@@ -18,23 +18,38 @@
                 <td style="font-size:medium">
                     <asp:LinkButton ID="lbtnBilgilerim" runat="server">Bilgilerim</asp:LinkButton>
                     &nbsp|&nbsp
-                    <asp:LinkButton ID="lbtnSifreDegistir" runat="server">Sifre Degistir</asp:LinkButton>
+                    <asp:LinkButton ID="lbtnSifreDegistir" runat="server" CommandName="SifreDegistir" OnCommand="Genel_Command">Sifre Degistir</asp:LinkButton> 
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <LoggedInTemplate>
+                            &nbsp|&nbsp
+                            <asp:LoginStatus ID="LoginStatus2" runat="server" />
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                    <asp:LinkButton style="text-decoration:none; color:green" ID="lbtnAdminPaneli" runat="server" CommandName="AdminPaneli" OnCommand="Genel_Command">&nbsp|&nbsp Admin Paneli</asp:LinkButton>
                 </td>
             </tr>
             <tr>
                 <td>
                     <asp:MultiView ID="MultiView1" runat="server">
                         <asp:View ID="View1" runat="server">
-                            <asp:ChangePassword ID="ChangePassword1" runat="server" BackColor="#E3EAEB" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em">
+                            <asp:ChangePassword ID="ChangePassword1" runat="server" BackColor="#E3EAEB" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="Small" OnCancelButtonClick="ChangePassword1_CancelButtonClick" OnContinueButtonClick="ChangePassword1_ContinueButtonClick" Width="585px">
                                 <CancelButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" />
                                 <ChangePasswordButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" />
                                 <ContinueButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" />
                                 <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
                                 <PasswordHintStyle Font-Italic="True" ForeColor="#1C5E55" />
-                                <TextBoxStyle Font-Size="0.8em" />
+                                <MailDefinition From="yonetici.eticaret@gmail.com" Subject="Şifreniz Değiştirildi">
+                                </MailDefinition>
+                                <TextBoxStyle Font-Size="0.8em" Width="200px" />
                                 <TitleTextStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
                             </asp:ChangePassword>
                         </asp:View>
+                        <asp:View ID="View2" runat="server">
+
+                        </asp:View>
+
+
+
                     </asp:MultiView>
                 </td>
             </tr>

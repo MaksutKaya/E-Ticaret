@@ -46,14 +46,18 @@
             </div> <!-- End #logn-top -->
             
             <div id="login-content">
+                <asp:LoginView ID="LoginView1" runat="server">
+                    <AnonymousTemplate>
+                        <asp:Login ID="Login1" runat="server"  DisplayRememberMe="False" BackColor="White" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="Small" ForeColor="Black" TextLayout="TextOnTop" Font-Bold="True" TitleText="Admin Login" Width="250px" DestinationPageUrl="~/admin/DefaultAdmin.aspx" HelpPageText="E-Ticaret Web Sitesi" HelpPageUrl="~/Default.aspx">
+                            <HyperLinkStyle Font-Bold="False" />
+                            <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
+                            <LoginButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="Small" ForeColor="Black" Width="100px" />
+                            <TextBoxStyle Font-Size="Small" BorderStyle="Dotted" Width="240px" />
+                            <TitleTextStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
+                        </asp:Login>
+                    </AnonymousTemplate>
 
-                <asp:Login ID="Login1" runat="server"  DisplayRememberMe="False" BackColor="White" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="Small" ForeColor="Black" TextLayout="TextOnTop" Font-Bold="True" TitleText="Admin Login" Width="250px" DestinationPageUrl="~/admin/DefaultAdmin.aspx">
-                    <HyperLinkStyle Font-Bold="False" />
-                    <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
-                    <LoginButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="Small" ForeColor="Black" Width="100px" />
-                    <TextBoxStyle Font-Size="Small" BorderStyle="Dotted" Width="240px" />
-                    <TitleTextStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
-                </asp:Login>
+                </asp:LoginView>
 
             </div> <!-- End #login-content -->
             

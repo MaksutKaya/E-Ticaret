@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -36,6 +37,12 @@ namespace E_Ticaret.Admin
             {
                 Response.Redirect("adminlogin.aspx");
             }
+            if (Page.User.Identity.Name !="admin")
+            {
+                FormsAuthentication.SignOut();
+                Response.Redirect("adminlogin.aspx");                
+            }
+
             if (IsPostBack) return;
             MultiView1.ActiveViewIndex = 0;
             ddlCateFill();

@@ -102,6 +102,11 @@ namespace E_Ticaret
                         Response.Redirect("~/User/Register.aspx");
                     }
                     break;
+                case "loginMyAccount":
+                    {
+                        Response.Redirect("~/User/MyAccount.aspx");
+                    }
+                    break;
                 case "login":
                     {
                         if (Request.UrlReferrer.LocalPath == "/ProductDetails.aspx")
