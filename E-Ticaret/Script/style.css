@@ -248,7 +248,7 @@ ul.menu {
     }
 
         ul.menu li.divider {
-            display: inline;
+            /*display: inline;*/
             width: 2px;
             height: 50px;
             float: left;
@@ -734,50 +734,62 @@ color:#ff3700;
 }*/
 /*---------------contact_form------------------*/
 .contact_form {
-    width: 355px;
+    width: 500px;
     float: left;
     padding: 0px 0 0 75px;
 }
 
 .form_row {
-    width: 335px;
+    width: 450px;
     clear: both;
-    padding: 10px 0 10px 0;
+    padding: 5px 0 10px 0;
     _padding: 5px 0 5px 0;
     color: #a53d17;
 }
 
-label.contact {
-    width: 75px;
+.labelcontact {
+    width: 100px;
     float: left;
     font-size: 12px;
     text-align: right;
     padding: 4px 5px 0 0;
     color: #333333;
 }
-
-input.contact_input {
-    width: 253px;
-    height: 18px;
-    background-color: #fff;
-    color: #999999;
-    border: 1px #DFDFDF solid;
+label.contact {
+    width: 90px;
+    height:27px;
     float: left;
-}
-
-textarea.contact_textarea {
-    width: 253px;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
+    text-align: right;
+    padding: 1px 5px 0 0;
+    color: #333333;
+}
+
+
+.contact_input {
+    width: 300px;
+    height: 27px;
+    background-color: #fff;
+    color: #999999;
+    margin-left:5px;
+    border: 1px #DFDFDF solid;
+    float: left;
+}
+
+.contact_textarea {
+    width: 300px;
+    height: 100px;
+    margin-left:5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
     color: #999999;
     background-color: #fff;
     border: 1px #DFDFDF solid;
     float: left;
 }
 
-a.contact {
-    width: 99px;
+.contact {
+    width: 109px;
     height: 27px;
     display: block;
     float: right;

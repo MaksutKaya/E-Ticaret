@@ -38,7 +38,7 @@
                                 <ContinueButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" />
                                 <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
                                 <PasswordHintStyle Font-Italic="True" ForeColor="#1C5E55" />
-                                <MailDefinition From="yonetici.eticaret@gmail.com" Subject="Şifreniz Değiştirildi">
+                                <MailDefinition From="yonetici.eticaret@gmail.com" Subject="Şifreniz Değiştirildi." BodyFileName="~/User/ChangePassword.txt" IsBodyHtml="True">
                                 </MailDefinition>
                                 <TextBoxStyle Font-Size="0.8em" Width="200px" />
                                 <TitleTextStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />

@@ -5,10 +5,23 @@
 <%-- Web site adminisration tools -> aracı ile web site konfigurasyon işlemlerinizi -> IIS(yani locak üserinden) çalışan aspnet sql kullanıcı ekranı ile -> kullanici sifre vb. oluşturup rahatça işlemlerinizi gerçekleştirebilirsiniz ... internetten araştır --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: 100%; height: auto;">
-        <asp:CreateUserWizard runat="server" ID="ctl00" BackColor="#DADADA" BorderColor="#E6E2D8" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="Small" ContinueDestinationPageUrl="~/Default.aspx" Width="585px">
+        <asp:CreateUserWizard
+            runat="server"
+            ID="ctl00"
+            BackColor="#DADADA"
+            BorderColor="#E6E2D8"
+            BorderStyle="Solid"
+            BorderWidth="1px"
+            Font-Names="Verdana"
+            Font-Size="Small"
+            ContinueDestinationPageUrl="~/Default.aspx"
+            Width="585px"
+            EmailRegularExpression="^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$">
             <CompleteSuccessTextStyle Font-Size="Small" />
             <ContinueButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#598891" Font-Size="Small" Height="30px" Width="125px" />
             <CreateUserButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#5C8B93" Font-Size="Small" Height="30px" Width="125px" />
+            <MailDefinition BodyFileName="~/User/Welcome.txt" From="yonetici.eticaret@gmail.com" IsBodyHtml="True" Subject="Hoşgeldiniz">
+            </MailDefinition>
             <TextBoxStyle Font-Size="Small" Width="200px" />
             <TitleTextStyle BackColor="#629199" Font-Bold="True" ForeColor="White" Font-Size="Small" Height="28px" />
             <WizardSteps>

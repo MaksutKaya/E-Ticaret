@@ -1,0 +1,4 @@
+﻿Sayın <%Username%><br/>
+Sitemize Hoşgeldiniz. <br/>Kaydınız başarıyla gerçekleşmiştir. Keyifli alışverişler dileriz
+<br/>
+E-Ticaret Site Yönetimi

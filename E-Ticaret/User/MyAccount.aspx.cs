@@ -12,15 +12,12 @@ namespace E_Ticaret.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
-                return;
-            }
+            if (IsPostBack) return;
             if (Page.User.Identity.IsAuthenticated == false)
             {
                 Response.Redirect("~/Default.aspx");
             }
-            if (Page.User.Identity.Name!="admin")
+            if (Page.User.Identity.Name != "admin")
             {
                 lbtnAdminPaneli.Visible = false;
             }
