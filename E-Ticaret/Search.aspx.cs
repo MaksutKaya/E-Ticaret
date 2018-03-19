@@ -67,22 +67,16 @@ namespace E_Ticaret
                     break;
                 case "addToCart":
                     {
-                        // Response.Write("Ürününüz Sepete Eklenmiştir ...");
-
-                        DropDownList drpStokAdedi = e.Item.FindControl("drpQuantity") as DropDownList;
-
                         db = new Web.Library.E_TicaretDataContext();
                         Web.Library.Product selectedProd = db.Products.FirstOrDefault(p => p.ProductID == Convert.ToInt32(e.CommandArgument));
 
-                        List<Web.Library.Cart.CartProduct> currentItemsEnd = Web.Library.Cart.CartTools.GetAllCartProduct(Session["myCart"]);
+                        Web.Library.Cart.CartProduct currentItem = new Web.Library.Cart.CartProduct();
+                        currentItem.selectedProduct = selectedProd;
+                        currentItem.Quantity++;
 
-                        currentItemsEnd.Add(new Web.Library.Cart.CartProduct()
-                        {
-                            Quantity = 1,
-                            selectedProduct = (Web.Library.Product)selectedProd
-                        });
-                        selectedProduct = selectedProd;
-                        Session["mycart"] = currentItemsEnd;
+                        List<Web.Library.Cart.CartProduct> listemiz = Web.Library.Cart.CartTools.AddItem(currentItem, Session["myCart"]);
+
+                        Session["mycart"] = listemiz;
                         Response.Redirect(Page.Request.Url.ToString());
                     }
                     break;
